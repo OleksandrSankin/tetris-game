@@ -21,15 +21,16 @@ public class Field {
         return battleField;
     }
 
-    public Координаты moveToPosition(Координаты newКоординаты, Координаты oldКоординаты, char symbol) {
-        if (newКоординаты.getX() >= 0 && newКоординаты.getX() < this.width
-                && newКоординаты.getY() >= 0 && newКоординаты.getY() < this.height) {
-            field[oldКоординаты.getY()][oldКоординаты.getX()] = ' ';
-            field[newКоординаты.getY()][newКоординаты.getX()] = symbol;
-            return newКоординаты;
-        } else {
-            return oldКоординаты;
+    public Координата[] moveToPosition(Координата[] newКоордината, Координата[] oldКоордината, char symbol) {
+        for (int i = 0; i < oldКоордината.length; i++) {
+            Координата координата = oldКоордината[i];
+            this.field[координата.getX()][координата.getY()] = ' ';
         }
+        for (int i = 0; i < newКоордината.length; i++) {
+            Координата координата = newКоордината[i];
+            this.field[координата.getX()][координата.getY()] = symbol;
+        }
+        return newКоордината;
     }
 
     @Override

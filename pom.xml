@@ -34,7 +34,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.game.Main</mainClass>
+                            <mainClass>com.tetris.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

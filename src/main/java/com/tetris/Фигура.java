@@ -1,48 +1,30 @@
 package com.tetris;
 
-import java.util.Random;
 
 public class Фигура {
-    private Координаты координаты;
+    private Координата[] координата;
     private Field field;
-    private Random random;
 
-    public Фигура(Координаты координаты, Field field) {
-        this.координаты = координаты;
+    public Фигура(Field field) {
+
+        координата = new Координата[3];
+        координата[0] = new Координата(0, 3);
+        координата[1] = new Координата(0, 4);
+        координата[2] = new Координата(0, 5);
+
         this.field = field;
-        this.random = new Random();
-        moveRight();
+        moveDown();
     }
 
-    public Координаты getКоординаты() {
-        return координаты;
+    public Координата[] getКоордината() {
+        return координата;
     }
 
-    public void moveRandom() {
-        int nextInt = random.nextInt(4);
-        if (nextInt == 0) moveRight();
-        if (nextInt == 1) moveLeft();
-        if (nextInt == 2) moveDown();
-        if (nextInt == 3) moveUp();
-    }
-
-    private void moveRight() {
-        Координаты newКоординаты = new Координаты(координаты.getX() + 1, координаты.getY());
-        координаты = field.moveToPosition(newКоординаты, координаты, 'Z');
-    }
-
-    private void moveLeft() {
-        Координаты newКоординаты = new Координаты(координаты.getX() - 1, координаты.getY());
-        координаты = field.moveToPosition(newКоординаты, координаты, 'Z');
-    }
-
-    private void moveUp() {
-        Координаты newКоординаты = new Координаты(координаты.getX(), координаты.getY() - 1);
-        координаты = field.moveToPosition(newКоординаты, координаты, 'Z');
-    }
-
-    private void moveDown() {
-        Координаты newКоординаты = new Координаты(координаты.getX(), координаты.getY() + 1);
-        координаты = field.moveToPosition(newКоординаты, координаты, 'Z');
+    public void moveDown() {
+        Координата[] новаяКоордината = new Координата[3];
+        новаяКоордината[0] = new Координата(this.координата[0].getX()+1, this.координата[0].getY());
+        новаяКоордината[1] = new Координата(this.координата[1].getX()+1, this.координата[1].getY());
+        новаяКоордината[2] = new Координата(this.координата[2].getX()+1, this.координата[2].getY());
+        this.координата = field.moveToPosition(новаяКоордината, this.координата, 'Z');
     }
 }

@@ -17,9 +17,7 @@ public class Main {
 
         ConsoleReader console = new ConsoleReader();
         Field field = new Field(20, 10);
-        Фигура фигура1 = new Фигура(new Координаты(10, 5), field);
-        Фигура фигура2 = new Фигура(new Координаты(18, 1), field);
-        Фигура фигура3 = new Фигура(new Координаты(14, 2), field);
+        Фигура фигура1 = new Фигура(field);
 
         hideCursor(console);
         clearConsole(console);
@@ -35,30 +33,23 @@ public class Main {
             if (action == Action.Right) {
 
 
-                фигура1.moveRandom();
-                фигура2.moveRandom();
-                фигура3.moveRandom();
+                фигура1.moveDown();
+
 
             } else if (action == Action.Left) {
 
 
-                фигура1.moveRandom();
-                фигура2.moveRandom();
-                фигура3.moveRandom();
+                фигура1.moveDown();
+
 
             } else if (action == Action.Up) {
 
 
-                фигура1.moveRandom();
-                фигура2.moveRandom();
-                фигура3.moveRandom();
+                фигура1.moveDown();
+
 
             } else if (action == Action.Down) {
-
-
-                фигура1.moveRandom();
-                фигура2.moveRandom();
-                фигура3.moveRandom();
+                фигура1.moveDown();
             }
 
             printBattleField(console, field);

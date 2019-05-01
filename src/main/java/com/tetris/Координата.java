@@ -1,10 +1,10 @@
 package com.tetris;
 
-public class Координаты {
+public class Координата {
     private int x;
     private int y;
 
-    public Координаты(int x, int y) {
+    public Координата(int x, int y) {
         this.x = x;
         this.y = y;
     }
