@@ -18,6 +18,7 @@ public class Main {
         ConsoleReader console = new ConsoleReader();
         Field field = new Field(20, 10);
         Линия линия1 = new Линия(field);
+        ФигураГ фигураГ = new ФигураГ(field);
 
         hideCursor(console);
         clearConsole(console);
@@ -34,22 +35,24 @@ public class Main {
 
 
                 линия1.перевернутьВправо();
+                фигураГ.перевернутьВправо();
 
 
             } else if (action == Action.Left) {
 
 
                 линия1.перевернутьВлево();
-
+                фигураГ.перевернутьВлево();
 
             } else if (action == Action.Up) {
 
 
                 линия1.двигатьсяВниз();
-
+                фигураГ.перевернуть180();
 
             } else if (action == Action.Down) {
                 линия1.двигатьсяВниз();
+                фигураГ.двигатьсяВниз();
             }
 
             printBattleField(console, field);
