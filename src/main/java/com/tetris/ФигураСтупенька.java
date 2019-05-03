@@ -1,6 +1,6 @@
 package com.tetris;
 
-public class ФигураСтупенька {
+public class ФигураСтупенька extends Фигура{
 
     private Координата[] координата;
     private Field field;
@@ -41,6 +41,11 @@ public class ФигураСтупенька {
         перевернутьВлево();
     }
 
+    @Override
+    public void перевернуть180() {
+
+    }
+
     public Координата[] getКоордината() {
         return координата;
     }
@@ -52,5 +57,10 @@ public class ФигураСтупенька {
         новаяКоордината[2] = new Координата(this.координата[2].getX() + 1, this.координата[2].getY());
         новаяКоордината[3] = new Координата(this.координата[3].getX() + 1, this.координата[3].getY());
         this.координата = field.moveToPosition(новаяКоордината, this.координата, 'Z');
+    }
+
+    @Override
+    public void двигатьсяВправо() {
+
     }
 }

@@ -1,7 +1,7 @@
 package com.tetris;
 
 
-public class Линия {
+public class Линия extends Фигура {
     private Координата[] координата;
     private Field field;
     private boolean фигураНеПеревернута = true;
@@ -39,6 +39,11 @@ public class Линия {
         this.перевернутьВлево();
     }
 
+    @Override
+    public void перевернуть180() {
+
+    }
+
     public Координата[] getКоордината() {
         return координата;
     }
@@ -49,5 +54,10 @@ public class Линия {
         новаяКоордината[1] = new Координата(this.координата[1].getX() + 1, this.координата[1].getY());
         новаяКоордината[2] = new Координата(this.координата[2].getX() + 1, this.координата[2].getY());
         this.координата = field.moveToPosition(новаяКоордината, this.координата, 'Z');
+    }
+
+    @Override
+    public void двигатьсяВправо() {
+
     }
 }

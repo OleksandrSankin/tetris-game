@@ -1,6 +1,6 @@
 package com.tetris;
 
-public class ФигураКвадрат {
+public class ФигураКвадрат extends Фигура{
 
     private Координата[] координата;
     private Field field;
@@ -44,5 +44,10 @@ public class ФигураКвадрат {
         новаяКоордината[2] = new Координата(this.координата[2].getX() + 1, this.координата[2].getY());
         новаяКоордината[3] = new Координата(this.координата[3].getX() + 1, this.координата[3].getY());
         this.координата = field.moveToPosition(новаяКоордината, this.координата, 'Z');
+    }
+
+    @Override
+    public void двигатьсяВправо() {
+
     }
 }
