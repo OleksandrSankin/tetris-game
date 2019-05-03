@@ -22,6 +22,15 @@ public class Field {
     }
 
     public Координата[] moveToPosition(Координата[] newКоордината, Координата[] oldКоордината, char symbol) {
+        for (int i = 0; i < newКоордината.length; i++) {
+            Координата координата = newКоордината[i];
+            if (координата.getX() == 0 || координата.getX() == this.height - 1) {
+                return oldКоордината;
+            }
+            if (координата.getY() == 0 || координата.getY() == this.width - 1) {
+                return oldКоордината;
+            }
+        }
         for (int i = 0; i < oldКоордината.length; i++) {
             Координата координата = oldКоордината[i];
             this.field[координата.getX()][координата.getY()] = ' ';
