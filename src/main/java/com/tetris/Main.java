@@ -8,7 +8,6 @@ import java.io.IOException;
 public class Main {
 
     private static final String HIDE_CURSOR = "\u001B[?25l";
-    private static final String KEY_UP = "\u001B[A";
     private static final String KEY_DOWN = "\u001B[B";
     private static final String KEY_LEFT = "\u001B[D";
     private static final String KEY_RIGHT = "\u001B[C";
@@ -37,11 +36,9 @@ public class Main {
 
             } else if (action == Action.Left) {
 
-
                 фигура.перевернутьВлево();
 
-            } else if (action == Action.Up) {
-
+            } else if (action == Action.Rotate) {
 
                 фигура.перевернуть180();
 
@@ -65,7 +62,7 @@ public class Main {
 
     private static Action readKeyboard(ConsoleReader console) throws IOException {
         KeyMap map = new KeyMap("");
-        map.bind(KEY_UP, Action.Up);
+        map.bind(" ", Action.Rotate);
         map.bind(KEY_DOWN, Action.Down);
         map.bind(KEY_LEFT, Action.Left);
         map.bind(KEY_RIGHT, Action.Right);
