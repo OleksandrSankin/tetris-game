@@ -42,6 +42,16 @@ public class Field {
         return newКоордината;
     }
 
+    public boolean находитьсяЛиВнизуПоляФигура(Координата[] координаты) {
+        for (int i = 0; i < координаты.length; i++) {
+            Координата координата = координаты[i];
+            if (координата.getX() == this.height - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         String str = "";

@@ -1,6 +1,8 @@
 package com.tetris;
 
 public abstract class Фигура {
+    protected Координата[] координата;
+
     public abstract void перевернутьВлево();
 
     public abstract void перевернутьВправо();
@@ -10,5 +12,9 @@ public abstract class Фигура {
     public abstract void двигатьсяВниз();
 
     public abstract void двигатьсяВправо();
+
+    public Координата [] взятьКоординаты () {
+        return this.координата;
+    }
 
 }

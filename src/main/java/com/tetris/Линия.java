@@ -2,7 +2,7 @@ package com.tetris;
 
 
 public class Линия extends Фигура {
-    private Координата[] координата;
+
     private Field field;
     private boolean фигураНеПеревернута = true;
 

@@ -2,7 +2,6 @@ package com.tetris;
 
 public class ФигураСтупенька extends Фигура{
 
-    private Координата[] координата;
     private Field field;
     private boolean фигураНеПеревернута = true;
 

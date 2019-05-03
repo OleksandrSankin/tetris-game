@@ -1,7 +1,7 @@
 package com.tetris;
 
 public class ФигураТ extends Фигура {
-    private Координата[] координата;
+
     private Field field;
     private boolean фигураНеПеревернута = true;
 
