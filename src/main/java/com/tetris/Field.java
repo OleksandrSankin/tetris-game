@@ -4,6 +4,7 @@ public class Field {
     private final int width;
     private final int height;
     private char[][] field;
+    private Координата [] занятыеКоординаты;
 
     public Field(int width, int height) {
         this.field = createField(width, height);

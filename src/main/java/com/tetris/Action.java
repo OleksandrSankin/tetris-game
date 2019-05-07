@@ -1,5 +1,5 @@
 package com.tetris;
 
 public enum Action {
-    Left, Right, Up, Down
+    Left, Right, Rotate, Down
 }

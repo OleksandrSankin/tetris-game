@@ -36,11 +36,11 @@ public class Main {
 
             } else if (action == Action.Left) {
 
-                фигура.перевернутьВлево();
+                фигура.двигатьсяВлево();
 
             } else if (action == Action.Rotate) {
 
-                фигура.перевернуть180();
+                фигура.перевернуть();
 
             } else if (action == Action.Down) {
 
