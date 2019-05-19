@@ -1,10 +1,14 @@
 package com.tetris;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Field {
     private final int width;
     private final int height;
     private char[][] field;
-    private Координата [] занятыеКоординаты;
+
+    private List<Координата> занятыеКоординаты = new ArrayList<>();
 
     public Field(int width, int height) {
         this.field = createField(width, height);
@@ -43,14 +47,31 @@ public class Field {
         return newКоордината;
     }
 
-    public boolean находитьсяЛиВнизуПоляФигура(Координата[] координаты) {
+    public boolean можетЛиФигураДвигатьсяВниз(Координата[] координаты) {
         for (int i = 0; i < координаты.length; i++) {
             Координата координата = координаты[i];
             if (координата.getX() == this.height - 1) {
-                return true;
+                return false;
             }
         }
-        return false;
+        for (int i = 0; i < координаты.length; i++) {
+            for (int j = 0; j < занятыеКоординаты.size(); j++) {
+                Координата занятаяКоордината = занятыеКоординаты.get(j);
+                Координата желаемаяКоордината = координаты[i];
+
+                if (занятаяКоордината.getY() == желаемаяКоордината.getY() &&
+                        занятаяКоордината.getX() == желаемаяКоордината.getX() + 1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void зафиксироватьФигуру(Координата[] координаты) {
+        for (int i = 0; i < координаты.length; i++) {
+            занятыеКоординаты.add(координаты[i]);
+        }
     }
 
     @Override
