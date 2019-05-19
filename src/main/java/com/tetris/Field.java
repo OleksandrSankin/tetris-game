@@ -1,7 +1,6 @@
 package com.tetris;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Field {
     private final int width;
@@ -66,6 +65,40 @@ public class Field {
             }
         }
         return true;
+    }
+
+    public void удалитьСтрокиЕслиВозможно() {
+        Map<Integer, Integer> map = посчитатьКоличествоЗанятыхКоординат();
+        for (Map.Entry<Integer, Integer> счетчик : map.entrySet()) {
+            if (счетчик.getValue() == width - 1) {
+                Iterator<Координата> iterator = занятыеКоординаты.iterator();
+                while (iterator.hasNext()) {
+                    Координата координата = iterator.next();
+                    if (координата.getX() == счетчик.getKey()) {
+                        this.field[координата.getX()][координата.getY()] = ' ';
+                        iterator.remove();
+                    } else if (координата.getX() < счетчик.getKey()) {
+                        this.field[координата.getX()][координата.getY()] = ' ';
+                        координата.setX(координата.getX() + 1);
+                        this.field[координата.getX()][координата.getY()] = 'Z';
+                    }
+                }
+            }
+        }
+    }
+
+    private Map<Integer, Integer> посчитатьКоличествоЗанятыхКоординат() {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < занятыеКоординаты.size(); i++) {
+            Координата координата = занятыеКоординаты.get(i);
+            if (map.containsKey(координата.getX())) {
+                int count = map.get(координата.getX()) + 1;
+                map.put(координата.getX(), count);
+            } else {
+                map.put(координата.getX(), 1);
+            }
+        }
+        return map;
     }
 
     public void зафиксироватьФигуру(Координата[] координаты) {
